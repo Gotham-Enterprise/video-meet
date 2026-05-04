@@ -145,8 +145,8 @@ export function constructOptions(state: IReduxState) {
     if (serviceUrl && room) {
         const roomName = getNormalizedRoomName(room);
 
-        options.serviceUrl = appendURLParam(serviceUrl, 'room', roomName ?? '');
-
+        // Don't append room to the XMPP service URL
+        // The room is specified when joining the MUC, not in the connection URL
         if (options.websocketKeepAliveUrl) {
             options.websocketKeepAliveUrl = appendURLParam(options.websocketKeepAliveUrl, 'room', roomName ?? '');
         }
@@ -154,6 +154,9 @@ export function constructOptions(state: IReduxState) {
             options.conferenceRequestUrl = appendURLParam(options.conferenceRequestUrl, 'room', roomName ?? '');
         }
     }
+
+    // Set the XMPP service URL without room parameter
+    options.serviceUrl = serviceUrl;
 
     if (preferVisitor) {
         options.preferVisitor = true;

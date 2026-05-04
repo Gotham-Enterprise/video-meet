@@ -709,6 +709,7 @@ var config = {
     welcomePage: {
         // Skip welcome page - room is joined directly
         disabled: true,
+
         // If set, landing page will redirect to this URL.
         customUrl: ''
     },
@@ -717,43 +718,16 @@ var config = {
     // Configs for the lobby screen.
     lobby: {
         // If Lobby is enabled, it starts knocking automatically. Replaces `autoKnockLobby`.
-        autoKnock: false,
+        autoKnock: true,
+
         // Enables the lobby chat. Replaces `enableLobbyChat`.
         enableChat: true,
+
         // Shows the hangup button in the lobby screen.
         showHangUp: true,
+
         // Enable lobby by default for all rooms
         enabled: true
-    },
-
-    // Disable prejoin screen (camera/mic preview before joining)
-    prejoinConfig: {
-        enabled: false
-    },
-
-    // Configs for the security related UI elements.
-    // securityUi: {
-    //     // Hides the lobby button. Replaces `hideLobbyButton`.
-    //     hideLobbyButton: false,
-    //     // Hides the possibility to set and enter a lobby password.
-    //     disableLobbyPassword: false,
-    // },
-
-    // Disable app shortcuts that are registered upon joining a conference
-    // disableShortcuts: false,
-
-    // Disable initial browser getUserMedia requests.
-    // This is useful for scenarios where users might want to start a conference for screensharing only
-    // disableInitialGUM: false,
-
-    // Enabling the close page will ignore the welcome page redirection when
-    // a call is hangup.
-    // enableClosePage: false,
-
-    // Enable lobby mode by default (requires authentication to join)
-    lobby: {
-        enabled: true,
-        autoKnock: true
     },
 
     // Disable hiding of remote thumbnails when in a 1-on-1 conference call.
