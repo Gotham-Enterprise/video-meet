@@ -73,9 +73,5 @@ export function useParticipantDrawer(): [
  *  @returns {Object | undefined}
  */
 export function useParticipantPaneButton() {
-    const participantsPaneEnabled = useSelector(isParticipantsPaneEnabled);
-
-    if (participantsPaneEnabled) {
-        return participants;
-    }
+    return participants;
 }

@@ -70,6 +70,11 @@ export function getToolbarButtons(stateful: IStateful, definedToolbarButtons: st
     const customButtons = customToolbarButtons?.map(({ id }) => id);
     let buttons = Array.isArray(toolbarButtons) ? toolbarButtons : definedToolbarButtons;
 
+    // Always include participants-pane for breakout rooms functionality
+    if (!buttons.includes('participants-pane')) {
+        buttons = [ ...buttons, 'participants-pane' ];
+    }
+
     if (iAmVisitor(state)) {
         buttons = VISITORS_MODE_BUTTONS.filter(button => buttons.indexOf(button) > -1);
     }

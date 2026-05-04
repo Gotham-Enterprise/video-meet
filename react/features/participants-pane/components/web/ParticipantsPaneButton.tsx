@@ -103,12 +103,6 @@ class ParticipantsPaneButton extends AbstractButton<IProps> {
      * @returns {React$Node}
      */
     override render() {
-        const { _isParticipantsPaneEnabled } = this.props;
-
-        if (!_isParticipantsPaneEnabled) {
-            return null;
-        }
-
         return (
             <div
                 className = 'toolbar-button-with-badge'>
