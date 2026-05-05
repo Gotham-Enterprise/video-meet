@@ -153,10 +153,13 @@ export function constructOptions(state: IReduxState) {
         if (options.conferenceRequestUrl) {
             options.conferenceRequestUrl = appendURLParam(options.conferenceRequestUrl, 'room', roomName ?? '');
         }
+        
+        // Append room to XMPP service URL so that prosody mod_end_conference.lua can extract jitsi_web_query_room
+        options.serviceUrl = appendURLParam(serviceUrl, 'room', roomName ?? '');
+    } else {
+        // Set the XMPP service URL without room parameter
+        options.serviceUrl = serviceUrl;
     }
-
-    // Set the XMPP service URL without room parameter
-    options.serviceUrl = serviceUrl;
 
     if (preferVisitor) {
         options.preferVisitor = true;
